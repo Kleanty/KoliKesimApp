@@ -1,0 +1,4 @@
+PyQt6>=6.6
+ezdxf>=1.3
+pytest>=8.0
+shapely>=2.0

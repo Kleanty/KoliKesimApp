@@ -1,0 +1,36 @@
+{
+  "name": "demo_rounded",
+  "display_name": "Örnek: Sabit Köşeli Dikdörtgen (Demo)",
+  "_aciklama": "Bu dosya bir ÖRNEKTİR. Köşe yarıçapı (radius) HER ZAMAN 20mm kalır; kenarlar L ve W'ye göre uzar/kısalır. Yeni bir kutu eklemek için bu dosyayı KOPYALAYIP DÜZENLEYİN - hiçbir .py dosyasına dokunmanıza gerek yoktur.",
+
+  "parameters": {
+    "radius": "20"
+  },
+
+  "points": [
+    { "name": "bottom_start", "x": "radius",     "y": "0" },
+    { "name": "bottom_end",   "x": "L - radius", "y": "0" },
+    { "name": "right_start",  "x": "L",          "y": "radius" },
+    { "name": "right_end",    "x": "L",          "y": "W - radius" },
+    { "name": "top_start",    "x": "L - radius", "y": "W" },
+    { "name": "top_end",      "x": "radius",     "y": "W" },
+    { "name": "left_start",   "x": "0",          "y": "W - radius" },
+    { "name": "left_end",     "x": "0",          "y": "radius" },
+
+    { "name": "c_br", "x": "L - radius", "y": "radius" },
+    { "name": "c_tr", "x": "L - radius", "y": "W - radius" },
+    { "name": "c_tl", "x": "radius",     "y": "W - radius" },
+    { "name": "c_bl", "x": "radius",     "y": "radius" }
+  ],
+
+  "segments": [
+    { "kind": "line", "points": ["bottom_start", "bottom_end"], "layer": "CUT" },
+    { "kind": "arc",  "points": ["c_br"], "radius": "radius", "start_angle": -90, "end_angle": 0, "layer": "CUT" },
+    { "kind": "line", "points": ["right_start", "right_end"], "layer": "CUT" },
+    { "kind": "arc",  "points": ["c_tr"], "radius": "radius", "start_angle": 0, "end_angle": 90, "layer": "CUT" },
+    { "kind": "line", "points": ["top_start", "top_end"], "layer": "CUT" },
+    { "kind": "arc",  "points": ["c_tl"], "radius": "radius", "start_angle": 90, "end_angle": 180, "layer": "CUT" },
+    { "kind": "line", "points": ["left_start", "left_end"], "layer": "CUT" },
+    { "kind": "arc",  "points": ["c_bl"], "radius": "radius", "start_angle": 180, "end_angle": 270, "layer": "CUT" }
+  ]
+}
